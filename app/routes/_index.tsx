@@ -1,16 +1,20 @@
 import type { MetaFunction } from "@remix-run/node";
+import Nav from "./components/nav";
+import "../app.css"
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "The Recipe Box" },
+    { name: "The Recipe Box", content: "Welcome to the Recipe Box" },
   ];
 };
 
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
+
+      <h1>Welcome to the Recipe Box!</h1>
+      <h2> This is the home Page</h2>
       <ul>
         <li>
           <a
@@ -36,6 +40,7 @@ export default function Index() {
           </a>
         </li>
       </ul>
+      <Nav />
     </div>
   );
 }
