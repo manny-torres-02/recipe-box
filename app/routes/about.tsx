@@ -5,9 +5,5 @@
 // import React from "react";
 
 export default function About() {
-    return (
-        <div>
-            HELLO THIS IS THE ABOUT PAGE 
-        </div>
-    )
+  return <div>HELLO THIS IS THE ABOUT PAGE</div>;
 }
