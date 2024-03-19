@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 export default function RecipeEntry() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
-  const [recipe, setRecipe] = useState(null);
+  const [recipe, setRecipe] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +14,14 @@ export default function RecipeEntry() {
     const ingredients = formData.get("ingredients");
 
     // console.log(title, ingredients);
-    setRecipe({ title, ingredients });
+
+    setRecipe((prevRecipes) => [
+      ...prevRecipes,
+      { id: nanoid(), title, ingredients },
+    ]);
+
+    setTitle("");
+    setIngredients("");
   };
 
   return (
@@ -41,12 +48,12 @@ export default function RecipeEntry() {
         ></textarea>
         <button type="submit">save </button>
       </form>
-      {recipe && (
-        <div>
+      {recipe?.map((recipe) => (
+        <div key={recipe.id}>
           <h2>{recipe.title}</h2>
           <p>{recipe.ingredients}</p>
         </div>
-      )}
+      ))}
     </div>
   );
 }
